@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Character Counter</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 20px;
+    }
+
+    #box {
+        max-width: 400px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    textarea {
+        width: 100%;
+        height: 120px;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        resize: none;
+        font-size: 14px;
+    }
+
+    #counter {
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 16px;
+    }
+</style>
+
+</head>
+<body>
+
+<div id="box">
+    <h3>Live Character Counter</h3>
+
+    <textarea id="textArea" maxlength="100" placeholder="Type here..."></textarea>
+
+    <p id="counter">Characters left: 100</p>
+</div>
+
+<script>
+    const textArea = document.getElementById("textArea");
+    const counter = document.getElementById("counter");
+    const maxLimit = 100;
+
+    textArea.addEventListener("input", () => {
+        const remaining = maxLimit - textArea.value.length;
+        counter.textContent = "Characters left: " + remaining;
+
+        if (remaining > 60) {
+            counter.style.color = "green";   
+        } else if (remaining > 20) {
+            counter.style.color = "orange";  
+        } else {
+            counter.style.color = "red";     
+        }
+    });
+</script>
+
+</body>
+</html>

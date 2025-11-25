@@ -1,0 +1,2 @@
+#productGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+.product { padding: 10px; border: 1px solid black; }
